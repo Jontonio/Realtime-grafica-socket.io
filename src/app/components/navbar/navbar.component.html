@@ -1,0 +1,13 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <img class="img-logo" src="./assets/logo-poke.png" alt="">
+      <span class="text-white">
+        <span *ngIf="_ws.listaClientes.length == 1; else more">
+          <span>{{_ws.listaClientes.length}}</span> un usuario ahora
+        </span>
+        <ng-template #more>
+          <span>{{_ws.listaClientes.length}}</span> usuarios ahora
+        </ng-template>
+      </span>
+    </div>
+</nav>

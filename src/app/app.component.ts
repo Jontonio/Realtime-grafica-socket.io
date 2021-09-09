@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RealService } from './services/real.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'grafica';
+  constructor(private _socket:RealService){}
 }

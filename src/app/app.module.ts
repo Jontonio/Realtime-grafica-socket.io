@@ -1,14 +1,33 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { GarficaComponent } from './components/garfica/garfica.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { WinPokemonComponent } from './components/win-pokemon/win-pokemon.component';
+import { ListPokemonComponent } from './components/list-pokemon/list-pokemon.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+// chars
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+// socket.io
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:8000', options: {} }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GarficaComponent,
+    NavbarComponent,
+    WinPokemonComponent,
+    ListPokemonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

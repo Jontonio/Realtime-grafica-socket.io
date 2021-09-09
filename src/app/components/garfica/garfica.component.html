@@ -1,0 +1,14 @@
+<div class="content-chart animate__animated animate__fadeIn" *ngIf="_ws.pokeWin">
+  <ngx-charts-bar-horizontal
+    scheme="flame"
+    [results]="_ws.dataGrafica"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-horizontal>
+</div>
