@@ -1,6 +1,14 @@
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
-const { desconectado, conectado, escucharVoto, Pokemons, dataGrafica} = require('../sockets/sockets');
+
+const { desconectado,
+        conectado,
+        escucharVoto,
+        dataGrafica,
+        cargarPokemons,
+        pokemonWin} = require('../sockets/sockets');
+const { getDataPokemon } = require('../api/pokemon');
 
 const cor = {
     cors:{
@@ -17,13 +25,14 @@ class Server{
         // condifuración de socket.io
         this.server = require('http').Server(this.app);
         this.io = require('socket.io')(this.server, cor );
-        
+
         // configuracion de middlewars y metodos
-        this.port = 8000;
+        this.port = process.env.PORT || 3000;
         this.middlewars();
         this.routes();
 
         this.listenSockets();
+        this.getdataAPI();
     }
 
     middlewars(){
@@ -41,16 +50,23 @@ class Server{
             // metodo de status de los clientes
             conectado(cliente, this.io);
             desconectado(cliente, this.io);
+            cargarPokemons(cliente, this.io);
             escucharVoto(cliente, this.io);
-            Pokemons(this.io);
             dataGrafica(this.io);
+            pokemonWin(this.io);
         })
+
+    }
+
+    getdataAPI(){
+      // get data pokemon on start server
+      getDataPokemon();
 
     }
 
     listen(){
         this.server.listen(this.port, () => {
-            console.log(`Example app listening at http://localhost:${this.port}`)
+            console.log(`app listening at http://localhost:${this.port}`)
         })
     }
 }
