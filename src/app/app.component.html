@@ -1,10 +1,15 @@
 <app-navbar></app-navbar>
-<div class="container-fluid" >
+<div *ngIf="!_socket.statusServer">
+  <div class="container text-center mt-4">
+    <h1><b>Servidor offline</b> <img class="img-offline" src="./assets/pikachu.png" alt="" srcset=""></h1>
+  </div>
+</div>
+<div class="container-fluid">
   <div class="row mt-4">
-    <div class="col-md-5 d-flex justify-content-center align-items-center">
+    <div class="col-md-3 d-flex justify-content-center align-items-center">
       <app-win-pokemon></app-win-pokemon>
     </div>
-    <div class="col-md-7 d-flex align-items-center">
+    <div class="col-md-9 d-flex align-items-center">
       <div class="container-fluid">
         <app-garfica></app-garfica>
       </div>
@@ -14,3 +19,5 @@
     <app-list-pokemon></app-list-pokemon>
   </div>
 </div>
+
+

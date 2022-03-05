@@ -1,13 +1,14 @@
 export class Pokemon{
+
     id:string
-    img:string
-    nombre:string
+    name:string
+    url:string
     votos:number
 
-    constructor(id:string, img:string, nombre:string, votos:number){
+    constructor(id:string, url:string, name:string, votos:number){
         this.id = id,
-        this.img = img,
-        this.nombre = nombre,
+        this.url = url,
+        this.name = name,
         this.votos = votos;
     }
 }

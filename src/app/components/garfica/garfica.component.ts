@@ -18,6 +18,6 @@ export class GarficaComponent {
   showYAxisLabel: boolean = true;
   xAxisLabel: string = 'votos';
 
-  constructor( public _ws:RealService) { }
+  constructor( public _ws:RealService) {}
 
 }

@@ -8,5 +8,7 @@ import { RealService } from './services/real.service';
 })
 export class AppComponent {
   title = 'grafica';
-  constructor(private _socket:RealService){}
+
+  constructor(public _socket:RealService){}
+
 }

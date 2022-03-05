@@ -1,6 +1,10 @@
 <div *ngIf="_ws.pokeWin">
-    <h2 class="text-center m-3 text-dark win-title">Pokemon más votado</h2>
+    <h2 class="text-center m-3 text-dark win-title">Pokémon más votado</h2>
     <div class="text-center animate__animated animate__bounce">
-        <img class="poke-win" [src]="'./assets/'+_ws.pokeWin.img" alt="">
+      <img class="poke-win" [src]="_ws.pokeWin.url" alt="">
+    </div>
+    <div class="d-flex justify-content-between">
+      <h2 class="text-center m-3 text-dark win-title">{{_ws.pokeWin.name}}</h2>
+      <h2 class="text-center m-3 text-dark win-title">{{_ws.pokeWin.votos}}</h2>
     </div>
 </div>

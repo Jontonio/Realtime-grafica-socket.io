@@ -1,16 +1,16 @@
 <div class="row mt-3">
-    <div class="col-md-3" *ngFor="let pokemon of _ws.listaPokemos">
-        <div class="card">
+    <div class="col-md-3" *ngFor="let pokemon of _ws.listaPokemos | async">
+        <div class="card mt-3">
             <div>
-                <p class="text-dark text-center m-2 sub-tile">{{pokemon.nombre}}</p>
+                <p class="text-dark text-center m-2 sub-tile">{{pokemon.name}}</p>
             </div>
             <div class="text-center mt-2">
-                <img [src]="'./assets/'+pokemon.img" class="card-img-top img-voto" alt="...">
+                <img [src]="pokemon.url" class="card-img-top img-voto" alt="...">
             </div>
             <div class="card-body text-center">
               <a class="btn"
                  (click)="_ws.votar(pokemon)">
-                 <i class="fas fa-thumbs-up"></i> {{digits(pokemon.votos)}}
+                 <i class="fas fa-thumbs-up"></i> {{_ws.digits(pokemon.votos)}}
                </a>
             </div>
         </div>

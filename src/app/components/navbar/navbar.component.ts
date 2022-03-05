@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RealService } from 'src/app/services/real.service';
 
 @Component({
@@ -6,11 +6,9 @@ import { RealService } from 'src/app/services/real.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   constructor(public _ws:RealService) { }
 
-  ngOnInit(): void {
-  }
 
 }
